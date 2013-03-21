@@ -30,16 +30,15 @@ Use *one* of the following options to include Ueditor assets.
 
 **3. Initialize Ueditor**
 
-For each textarea that you want to use with Ueditor, add the "ueditor" class and ensure it has a unique ID:
+For each textarea that you want to use with Ueditor, add the "ueditor" with  a unique ID:
 
     <%= text_area_tag :editor, "", :id => "myEditor", :rows => 40, :cols => 120 %>
 
     <script type="text/javascript">
       UE.getEditor('myEditor'， {initialFrameWidth:650})
-      //Ueditor has many options and plugins, the document is here 
-      //[document](http://ueditor.baidu.com/website/document.html)
     </script>
 
+Ueditor has many options and plugins, the document is here [Ueditor document](http://ueditor.baidu.com/website/document.html) .
 
 Using ueditor-rails as an Engine Dependency
 -------------------------------------------
