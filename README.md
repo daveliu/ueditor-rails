@@ -35,14 +35,9 @@ For each textarea that you want to use with TinyMCE, add the "tinymce" class and
     <%= text_area_tag :editor, "", :id => "myEditor", :rows => 40, :cols => 120 %>
 
     <script type="text/javascript">
-      UE.getEditor('myEditor'， {})
-      //Ueditor has many options and plugins, the document is here [document](http://ueditor.baidu.com/website/document.html)
-      // in the ueditor/editor_config.js has many configure options, 
-      // to init  ueditor, you can use :
-      //   var editor = new UE.ui.Editor();
-      //   editor.render("myEditor");
-      // or  
-      //   UE.getEditor(id,[opt])
+      UE.getEditor('myEditor'， {initialFrameWidth:650})
+      //Ueditor has many options and plugins, the document is here 
+      //[document](http://ueditor.baidu.com/website/document.html)
     </script>
 
 
