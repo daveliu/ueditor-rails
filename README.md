@@ -1,49 +1,58 @@
-ueditor-rails
-======
+Rails 3.1 Integration for Ueditor
+=================================
 
-Ueditor is a great rich text editor from [Baidu Ueditor ](http://ueditor.baidu.com/website/). This gem integrates Ueditor for Rails project. 
+The `ueditor-rails` gem integrates the [Ueditor](http://http://ueditor.baidu.com/website/) editor with the Rails 3.1 asset pipeline.
 
 
-Installation
+Instructions
 ------------
 
-Add `ueditor-rails` to you Gemfile.
+**1. Add `ueditor-rails` to your Gemfile**
 
-``` ruby
-gem 'ueditor-rails'
-```
+    gem 'ueditor-rails'
 
-**Sync ueditor**
-
-Ueditor has many js, css, image files,  so this gem doesn't follow the Rails 3.1 Asset Pipeline design, it will just  copy  Ueditor to your public directory with `rake ueditor` in your app. 
-
-``` ruby
-# Rakefile
-load 'tasks/ueditor.rake'
-```
-
-```
-$ rake ueditor
-```
+Be sure to add to the global group, not the `assets` group. Then run `bundle install`.
 
 
-Example Rails Helper
---------------------
+**2. Include the Ueditor assets**
 
-This would allow emojifying content such as: `it's raining :cats: and :dogs:!`
+Use *one* of the following options to include TinyMCE assets.
 
-See the [Emoji cheat sheet](http://www.emoji-cheat-sheet.com) for more examples.
+(1) Add to your application.js:
 
-```ruby
-module EmojiHelper
- def emojify(content)
-    h(content).to_str.gsub(/:([a-z0-9\+\-_]+):/) do |match|
-      if Emoji.names.include?($1)
-        '<img alt="' + $1 + '" height="20" src="' + asset_path("emoji/#{$1}.png") + '" style="vertical-align:middle" width="20" />'
-      else
-        match
-      end
-    end.html_safe if content.present?
-  end
-end
-```
+    //= require ueditor
+
+
+(2) The Ueditor assets can be included on a per-page basis using js:
+
+   <script type="text/javascript" src="/assets/ueditor.js">
+
+
+**3. Initialize Ueditor**
+
+For each textarea that you want to use with TinyMCE, add the "tinymce" class and ensure it has a unique ID:
+
+    <%= text_area_tag :editor, "", :id => "myEditor", :rows => 40, :cols => 120 %>
+
+    <script type="text/javascript">
+      UE.getEditor('myEditor'， {})
+      //Ueditor has many options and plugins, the document is here [document](http://ueditor.baidu.com/website/document.html)
+      // in the ueditor/editor_config.js has many configure options, 
+      // to init  ueditor, you can use :
+      //   var editor = new UE.ui.Editor();
+      //   editor.render("myEditor");
+      // or  
+      //   UE.getEditor(id,[opt])
+    </script>
+
+
+Using ueditor-rails as an Engine Dependency
+-------------------------------------------
+
+Ensure that you explicitly require `ueditor-rails` within your engine file. Including ueditor-rails as a dependency in your gemspec is not enough.
+
+
+Updating
+--------
+
+When new versions of Ueditor are released, simply update the `ueditor-rails` gem to the latest version. There is no need to run any extra rake tasks (apart from `rake assets:precompile`).
