@@ -5,7 +5,7 @@ require File.expand_path('../lib/ueditor/rails/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = "ueditor-rails"
-  gem.version       = Ueditor::Rails::VERSION
+  gem.version       = Ueditor::Rails::VERSION  
   gem.authors       = ["daveliu"]
   gem.email         = ["dave@liageren.com"]
   gem.description   = %q{Seamlessly integrates Ueditor into the Rails asset pipeline introduced in Rails 3.1.}
