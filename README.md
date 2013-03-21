@@ -35,7 +35,7 @@ For each textarea that you want to use with Ueditor, add the "ueditor" with  a u
     <%= text_area_tag :editor, "", :id => "myEditor", :rows => 40, :cols => 120 %>
 
     <script type="text/javascript">
-      UE.getEditor('myEditor'， {initialFrameWidth:650})
+      UE.getEditor('myEditor', {initialFrameWidth:650})
     </script>
 
 Ueditor has many options and plugins, the document is here [Ueditor document](http://ueditor.baidu.com/website/document.html) .
