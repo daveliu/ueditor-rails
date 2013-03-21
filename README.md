@@ -1,7 +1,7 @@
 Rails 3.1 Integration for Ueditor
 =================================
 
-The `ueditor-rails` gem integrates the [Ueditor](http://http://ueditor.baidu.com/website/) editor with the Rails 3.1 asset pipeline.
+The `ueditor-rails` gem integrates the [Ueditor](http://ueditor.baidu.com/website/) editor with the Rails 3.1 asset pipeline.
 
 
 Instructions
@@ -16,7 +16,7 @@ Be sure to add to the global group, not the `assets` group. Then run `bundle ins
 
 **2. Include the Ueditor assets**
 
-Use *one* of the following options to include TinyMCE assets.
+Use *one* of the following options to include Ueditor assets.
 
 (1) Add to your application.js:
 
@@ -30,7 +30,7 @@ Use *one* of the following options to include TinyMCE assets.
 
 **3. Initialize Ueditor**
 
-For each textarea that you want to use with TinyMCE, add the "tinymce" class and ensure it has a unique ID:
+For each textarea that you want to use with Ueditor, add the "ueditor" class and ensure it has a unique ID:
 
     <%= text_area_tag :editor, "", :id => "myEditor", :rows => 40, :cols => 120 %>
 

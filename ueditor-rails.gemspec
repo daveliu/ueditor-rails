@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["dave@liageren.com"]
   gem.description   = %q{Seamlessly integrates Ueditor into the Rails asset pipeline introduced in Rails 3.1.}
   gem.summary       = %q{Rails asset pipeline integration for Ueditor.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/daveliu/ueditor-rails"
   
 
   gem.files         = `git ls-files`.split($/)
